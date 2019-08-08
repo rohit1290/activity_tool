@@ -4,7 +4,7 @@ $dbprefix = elgg_get_config('dbprefix');
 $sql = "SELECT m.`value` as `plugin_id` FROM `{$dbprefix}entities` e,`{$dbprefix}metadata` m WHERE e.`subtype`='plugin' AND e.`guid`= m.`entity_guid` ORDER BY `value`";
 $dbrow = elgg()->db->getData($sql);
 $options[''] = "";
-foreach($dbrow as $row){
+foreach ($dbrow as $row) {
 	$options[$row->plugin_id] = "$row->plugin_id";
 }
 unset($sql);
@@ -29,8 +29,8 @@ echo "<table class='elgg-list elgg-table'>
 				</thead>
 				<tbody>";
 
-foreach($dbrow as $row){
-	if($row->plugin_id == null || $row->plugin_id == ""){
+foreach ($dbrow as $row) {
+	if ($row->plugin_id == null || $row->plugin_id == "") {
 		$bgclor = "red";
 	}
 	echo "<tr class='elgg-item' bgcolor='$bgclor'>";

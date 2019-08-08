@@ -24,12 +24,12 @@ class ElggActivityToolFix {
 	
 	public function insert_data($type, $subtype, $plugin_id, $user_invoked = true) {
 		$dbrow = elgg()->db->getDataRow("SELECT `id` FROM `{$this->dbprefix}entity_plugin_mapping` WHERE `type` = '$type' AND `subtype` = '$subtype' LIMIT 1");
-		if($dbrow->id == null){
+		if ($dbrow->id == null) {
 			// Insert DB ROW
 			elgg()->db->insertData("INSERT INTO `{$this->dbprefix}entity_plugin_mapping` (`type`, `subtype`, `plugin_id`) VALUES ('$type', '$subtype', '$plugin_id')");
 		} else {
 			// Update DB ROW
-			if($user_invoked){
+			if ($user_invoked) {
 				elgg()->db->updateData("UPDATE `{$this->dbprefix}entity_plugin_mapping` SET `plugin_id`='$plugin_id' WHERE `id` = '$dbrow->id'");
 			}
 		}

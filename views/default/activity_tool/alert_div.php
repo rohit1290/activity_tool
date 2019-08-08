@@ -1,4 +1,4 @@
-<?php 
+<?php
 $dbprefix = elgg_get_config('dbprefix');
 $sql = "SELECT DISTINCT count(*) as `cnt` 
           FROM `{$dbprefix}entities` e 
@@ -10,9 +10,9 @@ $sql = "SELECT DISTINCT count(*) as `cnt`
         e.`subtype` NOT IN ('plugin','elgg_upgrade','widget', 'comment') AND 
         p.`plugin_id` IS NULL";
 $dbrow = elgg()->db->getDataRow($sql);
-if($dbrow->cnt > 0){
-  echo elgg_view_message('error', 
-    'There are some subtype that needs to be mapped with a plugn_id. <a href="'.elgg_get_site_url().'admin/administer_utilities/plugin_river_fix">Click here</a> to make the changes.', 
-    ['title' => 'Alert!']);
+if ($dbrow->cnt > 0) {
+	echo elgg_view_message('error',
+	'There are some subtype that needs to be mapped with a plugn_id. <a href="'.elgg_get_site_url().'admin/administer_utilities/plugin_river_fix">Click here</a> to make the changes.',
+	['title' => 'Alert!']);
 }
- ?>
+	?>

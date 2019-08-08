@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /************************************************************************************************************************
@@ -23,10 +23,10 @@ function plugin_activity_fix_init() {
 		'context' => 'admin',
 	]);
 	
-	elgg_extend_view("admin/dashboard","activity_tool/alert_div",1);
+	elgg_extend_view("admin/dashboard", "activity_tool/alert_div", 1);
 	// elgg_extend_view("admin/plugins","activity_tool/alert_div",1);
 	
-	if(elgg_get_plugin_setting('activity_on_user_ban','activity_tool') == "yes"){
+	if (elgg_get_plugin_setting('activity_on_user_ban', 'activity_tool') == "yes") {
 		// Hide River Activity on User Ban
 		elgg_register_event_handler('ban', 'user', '_elgg_river_disable');
 		// Show River Activity on User (Un)Ban
@@ -65,7 +65,7 @@ function _elgg_river_on_activate_deactivate_plugin($entity, $enable_option) {
 	$dbprefix = elgg_get_config('dbprefix');
 	$plugin = $entity['plugin_id'];
 	
-	if($enable_option == "yes"){
+	if ($enable_option == "yes") {
 		// activate the plugin
 		$operator = "AND";
 		$enable = "= 'yes'";
