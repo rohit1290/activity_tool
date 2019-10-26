@@ -35,17 +35,20 @@ function plugin_activity_fix_init() {
 	
 }
 
-function _elgg_river_generic_deactivate($event, $type, $entity) {
+function _elgg_river_generic_deactivate(\Elgg\Event $event) {
+	$entity = $event->getObject();
 	_elgg_services()->events->triggerAfter('deactivate', 'plugin', $entity);
 	return true;
 }
 
-function _elgg_river_generic_activate($event, $type, $entity) {
+function _elgg_river_generic_activate(\Elgg\Event $event) {
+	$entity = $event->getObject();
 	_elgg_services()->events->triggerAfter('activate', 'plugin', $entity);
 	return true;
 }
 
-function _elgg_river_on_plugin_disable($event, $type, $entity) {
+function _elgg_river_on_plugin_disable(\Elgg\Event $event) {
+	$entity = $event->getObject();
 	if (!isset($entity['plugin_id'])) {
 		return;
 	}
@@ -53,7 +56,8 @@ function _elgg_river_on_plugin_disable($event, $type, $entity) {
 	return true;
 }
 
-function _elgg_river_on_plugin_enable($event, $type, $entity) {
+function _elgg_river_on_plugin_enable(\Elgg\Event $event) {
+	$entity = $event->getObject();
 	if (!isset($entity['plugin_id'])) {
 		return;
 	}
