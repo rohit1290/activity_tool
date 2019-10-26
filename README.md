@@ -1,4 +1,4 @@
-# Activity Tool v3.0.alpha
+# Activity Tool
 
 Elgg 3.0 has a limitation where the river activity does not get enabled/disabled on plugin activation/deactivation. As a result the river activities for the disabled plugins are shown without a valid view or language string.
 

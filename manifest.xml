@@ -3,7 +3,7 @@
 	<name>Activity Tool</name>
 	<id>activity_tool</id>
 	<author>Rohit Gupta</author>
-	<version>3.0-alpha</version>
+	<version>3.1</version>
 	<category>User admin</category>
 	<category>Site admin</category>
 	<description>Hide/Show River Activity on Plugin Activate/Deactivate</description>
